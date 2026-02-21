@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Your Moods</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Mood Log</h1>
+    {% if moods %}
+        <ul>
+            {% for mood in moods %}
+                <li><strong>{{ mood.mood }}</strong> - <small><i>{{ mood.time }}</small></i></li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No moods recorded yet.</p>
+    {% endif %}
+    <a href="{{ url_for('home') }}">Add another mood</a>
+</body>
+</html>
